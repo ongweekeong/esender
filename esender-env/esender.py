@@ -1,3 +1,4 @@
+import sqlite3
 from email.message import EmailMessage
 import smtplib
 
