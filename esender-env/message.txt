@@ -1,0 +1,8 @@
+Hello! 
+This is a test email written from Python.
+I hope that this email does work and that we can make some variables and stuff but that will be later.
+
+Regards, 
+Caleb.
+
+This is a system generated email and no signature is required something something.
