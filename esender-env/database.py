@@ -9,7 +9,8 @@ class Company():
         self.email = row['email']
         self.tte_secs = time.mktime(self.exp_date) - time.time()
         self.tte_days = int(self.tte_secs//86400)
-    
+        self.expired = self.tte_days < 0
+
     def get_exp_date_str(self):
         return time.asctime(self.exp_date)
 
@@ -30,14 +31,9 @@ def get_companies_from_db(db):
         except Exception as e:
             print(f"Warning: {e}")
         else:
-            print(f"Company name {coy.name} no {coy.license_no} found")
             companies.append(coy)
         finally:
             row = c.fetchone()
     
     return companies
 
-companies = get_companies_from_db("licenses.db")
-print(companies)
-for company in companies:
-    print(f"{company} exp date {company.get_exp_date_str()} in {company.tte_days}")
