@@ -1,5 +1,6 @@
 import sqlite3
 import time
+from math import ceil
 
 class Company():
     def __init__(self, row):
@@ -8,11 +9,12 @@ class Company():
         self.exp_date = time.strptime(str(row['expiry_date']), "%d/%m/%Y")
         self.email = row['email']
         self.tte_secs = time.mktime(self.exp_date) - time.time()
-        self.tte_days = int(self.tte_secs//86400)
-        self.expired = self.tte_days < 0
+        self.tte_days = int(ceil(self.tte_secs/86400))
+        self.is_expired = self.tte_days < 0
 
     def get_exp_date_str(self):
-        return time.asctime(self.exp_date)
+        date_str1, date_str2 = time.asctime(self.exp_date)[:11], time.asctime(self.exp_date)[-4:]
+        return date_str1+date_str2
 
     def __repr__(self):
         return self.name

@@ -1,0 +1,8 @@
+Subject: License Expiry Notification: 2 Weeks
+
+Dear {company}, 
+    This is an automated notification that your NParks license expires in 2 weeks on {date}.
+    
+    Renew your license here at pals.avs.gov.sg .
+
+This is a system generated email.
